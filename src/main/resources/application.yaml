@@ -1,1 +1,6 @@
-
+spring:
+  rsocket:
+    server:
+      port: ${HUB_RSOCKET_PORT}
+server:
+  port: ${HUB_PORT}
