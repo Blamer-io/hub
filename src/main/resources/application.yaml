@@ -4,3 +4,6 @@ spring:
       port: ${HUB_RSOCKET_PORT}
 server:
   port: ${HUB_PORT}
+notifications:
+  rsocket_port: ${NOTIFICATIONS_RSOCKET_PORT}
+  host: ${NOTIFICATIONS_HOST}

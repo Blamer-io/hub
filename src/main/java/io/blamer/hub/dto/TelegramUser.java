@@ -22,23 +22,21 @@
  * SOFTWARE.
  */
 
-package io.blamer.hub;
+package io.blamer.hub.dto;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-/**
- * Entry class.
- */
-@SpringBootApplication
-public class HubApplicationEntry {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class TelegramUser {
 
-  /**
-   * Entry point.
-   *
-   * @param args Application arguments
-   */
-  public static void main(final String[] args) {
-    SpringApplication.run(HubApplicationEntry.class, args);
-  }
+  private String token;
+
+  private String chat;
+
 }

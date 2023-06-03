@@ -26,25 +26,47 @@ package io.blamer.hub.controller;
 
 import io.blamer.hub.dto.RegistryRequest;
 import io.blamer.hub.dto.RegistryResponse;
+import io.blamer.hub.dto.TelegramUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 @Slf4j
 @RestController
+@RequestMapping("/api/v1/hub")
 @RequiredArgsConstructor
 public class HubController {
 
-  @MessageMapping("hub.auth")
-  public Mono<RegistryResponse> registryToken(Mono<RegistryRequest> registry) {
+  private final WebClient webClient;
+
+  @ResponseStatus(HttpStatus.ACCEPTED)
+  @PostMapping(value = "/auth")
+  public Mono<RegistryResponse> registryToken(@RequestBody Mono<RegistryRequest> registry) {
     return registry
-      .doOnNext(reg -> log.info("Sending {} to auth service...", reg))
+      .doOnNext(reg -> log.info("Sending {} to notifications service...", reg))
+      .map(request -> new TelegramUser(request.getToken(), request.getChat()))
+      .log()
+      .publishOn(Schedulers.boundedElastic())
+      .doOnNext(
+        user ->
+          this.webClient.post()
+            .uri("/api/v1/notifications")
+            .contentType(MediaType.APPLICATION_JSON)
+            .body(Mono.just(user), TelegramUser.class)
+            .retrieve()
+            .bodyToMono(Void.class)
+            .subscribe()
+      )
       .map(
         reg ->
           new RegistryResponse(
-            "You're sent: %s".formatted(reg.getToken()),
+            "Your token sent to authentication",
             reg.getChat()
           )
       );

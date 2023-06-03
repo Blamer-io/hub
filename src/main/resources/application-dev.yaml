@@ -1,0 +1,8 @@
+spring:
+  notifications:
+    base-url: http://localhost:8067
+logging:
+  level:
+    web: debug
+server:
+  port: 8066
