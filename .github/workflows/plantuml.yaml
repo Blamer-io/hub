@@ -5,11 +5,6 @@ on:
       - '**.puml'
     branches:
       - master
-  pull_request:
-    paths:
-      - '**.puml'
-    branches:
-      - master
 permissions:
   contents: write
 jobs:
