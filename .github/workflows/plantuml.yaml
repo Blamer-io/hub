@@ -25,7 +25,7 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: ${{ secrets.USERNAME }}
-          author_email: ${{ secrets.EMAIL }}
-          message: 'Diagram generated'
+          author_name: h1alexbel
+          author_email: hialexbel@gmail.com
+          message: 'diagram generated'
           add: 'diagrams/sequence.svg'
