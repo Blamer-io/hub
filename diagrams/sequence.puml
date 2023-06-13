@@ -6,6 +6,7 @@ database    Database    as db
 participant Notifications as notifications
 participant GitHub as github
 
+
 user -> bot : Chat ID
 bot -> hub : Token, Chat ID
 hub -> notifications: GitHub Token
