@@ -28,4 +28,4 @@ jobs:
           author_name: h1alexbel
           author_email: hialexbel@gmail.com
           message: 'diagram generated'
-          add: 'diagrams/sequence.svg'
+          add: 'diagrams/*'
