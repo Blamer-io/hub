@@ -1,0 +1,21 @@
+@startuml
+actor       TelegramUser as user
+participant Bot as bot
+participant Hub as hub
+database    Database    as db
+participant Notifications as notifications
+participant GitHub as github
+
+
+user -> bot : Chat ID
+bot -> hub : Token, Chat ID
+hub -> notifications: GitHub Token
+hub -> db: Chat ID, Token
+notifications -> github: GitHub Token
+github --> notifications: Subscription, Data Stream
+notifications --> hub: Token, Data Stream
+hub -> db: Chat ID by Token
+db --> hub: Chat ID
+hub --> bot: Chat ID, Data Stream
+bot --> user: Data Stream
+@enduml
