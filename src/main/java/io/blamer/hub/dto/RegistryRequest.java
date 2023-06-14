@@ -22,23 +22,31 @@
  * SOFTWARE.
  */
 
-package io.blamer.hub;
+package io.blamer.hub.dto;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- * Entry class.
+ * Request for auth.
  */
-@SpringBootApplication
-public class HubApplicationEntry {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class RegistryRequest {
 
   /**
-   * Entry point.
-   *
-   * @param args Application arguments
+   * Token to auth.
    */
-  public static void main(final String[] args) {
-    SpringApplication.run(HubApplicationEntry.class, args);
-  }
+  private String token;
+
+  /**
+   * Token owner chat.
+   */
+  private String chat;
 }

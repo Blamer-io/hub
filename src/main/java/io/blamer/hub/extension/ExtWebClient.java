@@ -22,23 +22,24 @@
  * SOFTWARE.
  */
 
-package io.blamer.hub;
+package io.blamer.hub.extension;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.function.client.WebClient;
 
-/**
- * Entry class.
- */
-@SpringBootApplication
-public class HubApplicationEntry {
+@Configuration
+public class ExtWebClient {
 
-  /**
-   * Entry point.
-   *
-   * @param args Application arguments
-   */
-  public static void main(final String[] args) {
-    SpringApplication.run(HubApplicationEntry.class, args);
+  @Value("${spring.notifications.base-url}")
+  private String baseUrl;
+
+  @Bean
+  public WebClient webClient() {
+    return WebClient.create(this.baseUrl);
   }
 }
