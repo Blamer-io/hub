@@ -166,6 +166,17 @@ SOFTWARE.
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <systemPropertyVariables>
+            <POSTGRES_USER>user</POSTGRES_USER>
+            <POSTGRES_PASSWORD>AAAAAA</POSTGRES_PASSWORD>
+            <POSTGRES_HOST>localhost</POSTGRES_HOST>
+            <HUB_PORT>7070</HUB_PORT>
+            <APP_LOG_LEVEL>DEBUG</APP_LOG_LEVEL>
+            <JDBC_LOG_LEVEL>DEBUG</JDBC_LOG_LEVEL>
+            <WEB_LOG_LEVEL>DEBUG</WEB_LOG_LEVEL>
+          </systemPropertyVariables>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
