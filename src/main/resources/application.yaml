@@ -1,1 +1,27 @@
-
+spring:
+  application:
+    name: hub
+  datasource:
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST}:5432/postgres
+server:
+  shutdown: graceful
+logging:
+  level:
+    io.blamer.hub: ${APP_LOG_LEVEL}
+    org.springframework.jdbc: ${JDBC_LOG_LEVEL}
+    web: ${WEB_LOG_LEVEL}
+  file:
+    path: /
+    name: hub.log
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /system
