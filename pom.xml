@@ -22,7 +22,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -171,7 +172,6 @@ SOFTWARE.
             <POSTGRES_USER>user</POSTGRES_USER>
             <POSTGRES_PASSWORD>AAAAAA</POSTGRES_PASSWORD>
             <POSTGRES_HOST>localhost</POSTGRES_HOST>
-            <HUB_PORT>7070</HUB_PORT>
             <APP_LOG_LEVEL>DEBUG</APP_LOG_LEVEL>
             <JDBC_LOG_LEVEL>DEBUG</JDBC_LOG_LEVEL>
             <WEB_LOG_LEVEL>DEBUG</WEB_LOG_LEVEL>
