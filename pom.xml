@@ -89,6 +89,8 @@ SOFTWARE.
     <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
     <checkstyle.version>8.15</checkstyle.version>
     <maven-checkstyle-plugin.version>3.2.2</maven-checkstyle-plugin.version>
+    <cactoos.version>0.55.0</cactoos.version>
+    <eokson.version>0.3.2</eokson.version>
   </properties>
   <dependencies>
     <dependency>
@@ -131,6 +133,16 @@ SOFTWARE.
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-configuration-processor</artifactId>
       <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>io.github.eo-cqrs</groupId>
+      <artifactId>eokson</artifactId>
+      <version>${eokson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.cactoos</groupId>
+      <artifactId>cactoos</artifactId>
+      <version>${cactoos.version}</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
