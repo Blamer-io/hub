@@ -33,7 +33,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
@@ -46,7 +45,7 @@ public class HubController {
   private final WebClient webClient;
 
   @ResponseStatus(HttpStatus.ACCEPTED)
-  @PostMapping(value = "/auth")
+  @PostMapping("/auth")
   public Mono<RegistryResponse> registryToken(@RequestBody Mono<RegistryRequest> registry) {
     return registry
       .doOnNext(reg -> log.info("Sending {} to notifications service...", reg))
