@@ -41,7 +41,7 @@ public class TokenController {
      * @throws Exception if something went wrong
      */
     @PostMapping
-    Mono<Void> registerToken(@RequestBody final RequestToken request)
+    public Mono<Void> registerToken(@RequestBody final RequestToken request)
             throws Exception {
         return this.tokens.add(new TokenToAdd(request).value());
     }
