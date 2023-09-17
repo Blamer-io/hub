@@ -91,7 +91,6 @@ SOFTWARE.
     <maven-checkstyle-plugin.version>3.2.2</maven-checkstyle-plugin.version>
     <cactoos.version>0.55.0</cactoos.version>
     <eokson.version>0.3.2</eokson.version>
-    <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
   </properties>
   <dependencies>
     <dependency>
@@ -159,11 +158,6 @@ SOFTWARE.
       <groupId>io.projectreactor</groupId>
       <artifactId>reactor-test</artifactId>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.jsonwebtoken</groupId>
-      <artifactId>jjwt</artifactId>
-      <version>${jsonwebtoken.version}</version>
     </dependency>
   </dependencies>
   <build>
