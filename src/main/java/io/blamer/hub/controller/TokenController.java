@@ -30,7 +30,7 @@ public class TokenController {
      *
      * @param tkns Tokens
      */
-    public TokenController(@Qualifier("tokenValidated")final Tokens tkns) {
+    public TokenController(@Qualifier("tokenValidation")final Tokens tkns) {
         this.tokens = tkns;
     }
 
