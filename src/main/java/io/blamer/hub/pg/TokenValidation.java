@@ -44,7 +44,7 @@ public class TokenValidation implements Tokens {
     private Mono<Void> validateAndInsertToken(Token token) {
         return validateToken(token)
                 .then(checkIfTokenExists(token))
-                .then(this.tokenInsertion.add(token));
+                .flatMap(ignore -> tokenInsertion.add(token));
     }
 
     private Mono<Void> validateToken(Token token) {
